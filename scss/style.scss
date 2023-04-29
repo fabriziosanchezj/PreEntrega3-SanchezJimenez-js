@@ -59,6 +59,16 @@ body{
         color: white;
     }
 }
+
+#next-btn{
+    background-color: rgb(4, 4, 78);
+    color: white;
+    font-family: $mainFont;
+    width: 100px;
+    border-radius: 10px;
+    display: none;
+}
+
 footer{
     color: white;
 }

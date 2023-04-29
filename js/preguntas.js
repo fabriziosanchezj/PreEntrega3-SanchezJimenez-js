@@ -29,7 +29,7 @@ const preguntas = [
 ]
 
 const preguntaDinamica = document.getElementById("preguntaDinamica");
-const botonDeRespuesta = document.getElementById("botonDeRespuesta")
+const botonesDeRespuesta = document.getElementById("botonesDeRespuesta")
 const nextButton = document.getElementById("next-btn")
 
 let marcadorPreguntaActual = 0;
@@ -38,10 +38,12 @@ let puntuacionActual = 0;
 function iniciarQuiz(){
     marcadorPreguntaActual=0;
     score=0;
+    nextButton.innerHTML = "Siguiente"
     mostrarPreguntas();
 }
 
 function mostrarPreguntas(){
+    cambiarPregunta();
     let preguntaActual = preguntas[marcadorPreguntaActual];
     let numeroDePregunta = marcadorPreguntaActual+1;
     preguntaDinamica.innerHTML = numeroDePregunta + ".- " + preguntaActual.pregunta;
@@ -50,10 +52,16 @@ function mostrarPreguntas(){
         const button = document.createElement("button");
         button.innerHTML = respuesta.text;
         button.classList.add("btn");
-        botonDeRespuesta.appendChild(button)
+        botonesDeRespuesta.appendChild(button)
 
     });
         
     }
+function removerHTML(){
+    nextButton.style.display = "none";
+    while(botonesDeRespuesta.firstChild){
+        botonesDeRespuesta.removeChild(botonesDeRespuesta.firstChild);
+    }
+}
 
 iniciarQuiz()

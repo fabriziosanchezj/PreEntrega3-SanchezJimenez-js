@@ -50,5 +50,13 @@ body {
     background-color: rgba(24, 24, 24, 0.747);
     color: white; }
 
+#next-btn {
+  background-color: #04044e;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  width: 100px;
+  border-radius: 10px;
+  display: none; }
+
 footer {
   color: white; }
