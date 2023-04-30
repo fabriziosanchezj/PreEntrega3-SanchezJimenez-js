@@ -1,6 +1,7 @@
 const preguntas = [
     {
-        pregunta: "¿Cuántos balones de oro tiene Lionel Messi?",
+        pregunta: "¿Cuántos balones de oro ha ganado Lionel Messi?",
+        imagen: `"https://estaticos-cdn.sport.es/clip/60f01165-c5cf-494a-977b-f1a94cc8110a_alta-libre-aspect-ratio_default_0.jpg" class="imagenPregunta"`,
         respuestas: [
             {text: "5", correct: "false"},
             {text: "6", correct: "false"},
@@ -10,6 +11,7 @@ const preguntas = [
     },
     {
         pregunta: "¿Ronaldo Nazario es el máximo goleador de la copa mundial de futbol?",
+        imagen: `"https://cdn.conmebol.com/wp-content/uploads/2022/09/R9.jpeg" class="imagenPregunta"`,
         respuestas: [
             {text: "Si", correct: "false"},
             {text: "No", correct: "true"},
@@ -19,6 +21,7 @@ const preguntas = [
     },
     {
         pregunta: "¿Cuál fue el primer equipo de Cristiano Ronaldo?",
+        imagen: `"https://www.edigitalagency.com.au/wp-content/uploads/Cristiano-Ronaldo-wallpaper-HD-Portugal-PC-desktop-laptop.png" class="imagenPregunta"`,
         respuestas: [
             {text: "Manchester United", correct: "false"},
             {text: "Benfica", correct: "false"},
@@ -26,42 +29,28 @@ const preguntas = [
             {text: "Sporting Lisboa", correct: "true"},
         ]
     },
+    {
+        pregunta: "¿Cuál fue la primer selección en ser campeona del mundo?",
+        imagen: `"https://p4.wallpaperbetter.com/wallpaper/991/460/970/2014-world-cup-trophy-wallpaper-preview.jpg" class="imagenPregunta"`,
+        respuestas: [
+            {text: "Italia", correct: "false"},
+            {text: "Uruguay", correct: "true"},
+            {text: "Brasil", correct: "false"},
+            {text: "Alemania", correct: "false"},
+        ]
+    },
+    {
+        pregunta: "¿Cuántas Champions League tiene el Real Madrid?",
+        imagen: `"https://img2.rtve.es/v/6559712?w=1600&preview=1653832270328.jpg" class="imagenPregunta"`,
+        respuestas: [
+            {text: "10", correct: "false"},
+            {text: "12", correct: "false"},
+            {text: "13", correct: "true"},
+            {text: "8", correct: "false"},
+        ]
+    },
+    
 ]
 
-const preguntaDinamica = document.getElementById("preguntaDinamica");
-const botonesDeRespuesta = document.getElementById("botonesDeRespuesta")
-const nextButton = document.getElementById("next-btn")
 
-let marcadorPreguntaActual = 0;
-let puntuacionActual = 0;
-
-function iniciarQuiz(){
-    marcadorPreguntaActual=0;
-    score=0;
-    nextButton.innerHTML = "Siguiente"
-    mostrarPreguntas();
-}
-
-function mostrarPreguntas(){
-    cambiarPregunta();
-    let preguntaActual = preguntas[marcadorPreguntaActual];
-    let numeroDePregunta = marcadorPreguntaActual+1;
-    preguntaDinamica.innerHTML = numeroDePregunta + ".- " + preguntaActual.pregunta;
-    
-    preguntaActual.respuestas.forEach(respuesta => {
-        const button = document.createElement("button");
-        button.innerHTML = respuesta.text;
-        button.classList.add("btn");
-        botonesDeRespuesta.appendChild(button)
-
-    });
-        
-    }
-function removerHTML(){
-    nextButton.style.display = "none";
-    while(botonesDeRespuesta.firstChild){
-        botonesDeRespuesta.removeChild(botonesDeRespuesta.firstChild);
-    }
-}
-
-iniciarQuiz()
+iniciarQuiz();

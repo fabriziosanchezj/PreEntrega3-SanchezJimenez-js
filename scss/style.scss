@@ -27,18 +27,24 @@ body{
 }
 //Experimento 2//
 .titulos{
-    margin: 25px;
     color: white;
     font-family: $mainFont;
     text-align: center;
+    h1{
+        margin-top: 25px;
+        font-size: 36px;
+    }
+    h2{
+        font-size: 24px;
+    }
 }
 .quiz{
     background-color: white;
     @include centrado-full;
     max-width: 1200px;
-    width: 800px;
-    margin: 100px auto 0;
-    height: 800px;
+    width: 900px;
+    margin: 20px auto 0;
+    height: 700px;
     border-radius: 10px;
     color: black;
 }
@@ -61,6 +67,7 @@ body{
 }
 
 #next-btn{
+    @include centrado-full;
     background-color: rgb(4, 4, 78);
     color: white;
     font-family: $mainFont;
@@ -68,7 +75,30 @@ body{
     border-radius: 10px;
     display: none;
 }
+.correcto{
+    background-color: green !important;
+}
 
+.incorrecto{
+    background-color: rgb(231, 72, 72) !important;
+}
+
+.imagenPregunta{
+    width: 500px;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+#playAgain-btn{
+    @include centrado-full;
+    background-color: rgb(4, 4, 78);
+    color: white;
+    font-family: $mainFont;
+    width: 100px;
+    border-radius: 10px;
+    display: none;
+
+}
 footer{
     color: white;
 }
