@@ -6,7 +6,7 @@ const imagenPregunta = document.getElementById("imagen")
 let marcadorPreguntaActual = 0;
 let puntuacionActual = 0;
 
-function iniciarQuiz(){ //Esta función sirve para iniciar el Quiz con el boton de inicio
+function iniciarQuiz(){ //Esta función sirve para iniciar el Quiz
     marcadorPreguntaActual=0;
     puntuacionActual=0;
     nextButton.innerHTML = "Siguiente"
@@ -32,7 +32,7 @@ function mostrarPreguntas(){ //Esta función sirve para que se muestren las preg
     });
     imagenPregunta.innerHTML = "<img src=" + preguntaActual.imagen + ">"; //quisiera ayuda aquí, no supe como hacer que las imagenes aparecieran de nuevo al darle jugar de nuevo
     imagenPregunta.classList.add("imagenPregunta");
-    console-log(preguntaActual)
+    console.log(preguntaActual)
 
 
     }
@@ -69,31 +69,38 @@ function seleccionarRespuesta(e){ //Esta función es para seleccionar la respues
 
     function mostrarPuntaje(){
         removerHTMLOriginal();
-        // preguntaDinamica.innerHTML = `¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}!`;
         nextButton.innerHTML = "Jugar de nuevo";
         nextButton.style.display = "flex";
         imagenPregunta.style.display = "none";
 
+        sessionStorage.setItem(`Puntuación`,puntuacionActual)
+
+
+        let puntuacion = sessionStorage.getItem("Puntuación");
         if(puntuacionActual==5){
-            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> ¡Felicidades usted es un experto de futbol! ⚽💯</h2>`;
+            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> ¡Felicidades usted es un experto de futbol! ⚽💯</h2> <br>
+            Porcentaje de aciertos:` + (puntuacion*100)/5 + "%";
         } else if (puntuacionActual==4){
-            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> ¡Felicidades usted es un gran fan de futbol! ⚽ </h2>`;
+            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> ¡Felicidades usted es un gran fan de futbol! ⚽ </h2><br>
+            Porcentaje de aciertos:` + (puntuacion*100)/5 + "%";
 
         } else if (puntuacionActual==3){
-            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> Usted es un fanatico del futbol mayor al promedio </h2>`;
+            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> Usted es un fanatico del futbol mayor al promedio </h2><br>
+            Porcentaje de aciertos:` + (puntuacion*100)/5 + "%";
 
         } else if (puntuacionActual==2){
-            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> Usted es un fan casual </h2>`;
+            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> Usted es un fan casual </h2><br>
+            Porcentaje de aciertos:` + (puntuacion*100)/5 + "%";
         } else if (puntuacionActual==1){
-            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> Usted deberia ver más futbol </h2>`;
+            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> Usted deberia ver más futbol </h2><br>
+            Porcentaje de aciertos:` + (puntuacion*100)/5 + "%";
         } else {
-            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> ¿Alguna vez ha visto un partido? </h2>`;
+            preguntaDinamica.innerHTML = `<h2>¡Obtuviste ${puntuacionActual} puntos de ${preguntas.length}! <br> ¿Alguna vez ha visto un partido? </h2><br>
+            Porcentaje de aciertos:` + (puntuacion*100)/5 + "%";
         } 
+
+        console.log(puntuacion)
     }
     nextButton.addEventListener("click", ()=>{
         (marcadorPreguntaActual < preguntas.length) ? siguientePregunta() : iniciarQuiz();
         });
-
-if(puntuacionActual==5){
-
-}

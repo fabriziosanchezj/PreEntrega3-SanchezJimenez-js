@@ -52,5 +52,4 @@ const preguntas = [
     
 ]
 
-
 iniciarQuiz();
